@@ -1,23 +1,5 @@
 /* Sorts the variable $list_to_sort and prints the sorted list in the debug output */
 
-$list_to_sort: john, anna, zoe, kim, felicia, carrie;
+@import '103-sort_list';
 
-@function sort-list($list) {
-  $list-length: length($list);
-  @for $i from 1 through $list-length {
-    @for $j from 1 through $list-length - $i {
-      $current: nth($list, $j);
-      $next: nth($list, $j + 1);
-      @if $current > $next {
-        $list: set-nth($list, $j, $next);
-        $list: set-nth($list, $j + 1, $current);
-      }
-    }
-  }
-  @return $list;
-}
-
-$sorted_list: sort-list($list_to_sort);
-
-@debug $sorted_list;
-
+@debug $list_to_sort;
